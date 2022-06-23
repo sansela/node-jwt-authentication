@@ -42,7 +42,7 @@ app.post('/token', (req, res) => {
 
 })
 
-app.delete('/delete', (req, res) => {
+app.delete('/logout', (req, res) => {
     const refreshToken = req.body.token
     if(refreshToken == null) res.sendStatus(401)
     if(!refreshTokens.includes(refreshToken)) res.sendStatus(403)
