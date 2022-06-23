@@ -21,20 +21,6 @@ app.get('/posts', authenticateToken, (req, res) => {
     res.json(post)
 })
 
-app.post('/login', (req, res) => {
-
-    const name = req.body.name
-    const password = req.body.password
-    //Authenticate using bcrypt. But in this project main focus is on awt. Assume authentication is successful
-
-    const user = {"name": name}
-
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-    res.json({
-        "accessToken": accessToken
-    })
-})
-
 function authenticateToken(req, res, next) {
 
     const authHeader = req.header('authorization')
@@ -46,9 +32,7 @@ function authenticateToken(req, res, next) {
         if(err) return res.sendStatus(403)
         req.user = user
         next()
-    })
-    
-
+    })  
 }
 
 app.listen(PORT, ()=> {
