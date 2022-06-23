@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:4000/delete
+DELETE http://localhost:4000/logout
 Content-Type: application/json
 
 {
